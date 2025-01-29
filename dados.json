@@ -1,0 +1,29 @@
+{
+    "contas": [],
+    "historico": {
+        "01-2025": [],
+        "2025-01": [
+            {
+                "id": 0,
+                "nome": "Riachuelo",
+                "valor": "97.00",
+                "vencimento": "2025-01-04 00:00:00",
+                "data_pagamento": "2025-01-23 18:42:03.606371"
+            },
+            {
+                "id": 0,
+                "nome": "Riachuelo",
+                "valor": "97.00",
+                "vencimento": "2025-01-17 00:00:00",
+                "data_pagamento": "2025-01-23 18:48:10.460157"
+            },
+            {
+                "id": 0,
+                "nome": "Riachuelo",
+                "valor": "97.00",
+                "vencimento": "2025-01-28 00:00:00",
+                "data_pagamento": "2025-01-24 18:24:59.433225"
+            }
+        ]
+    }
+}

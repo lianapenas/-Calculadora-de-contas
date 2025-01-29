@@ -1,0 +1,234 @@
+/* Estilo geral da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box; /* Garantir que padding e border não afetem o tamanho */
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Estilo do formulário */
+form {
+    max-width: 100%;
+    width: 600px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 16px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+form:hover {
+    transform: translateY(-5px); /* Animação ao passar o mouse */
+}
+
+/* Estilo dos rótulos (labels) */
+label {
+    display: block;
+    margin-bottom: 2px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+/* Estilo dos campos de entrada */
+input[type="text"], input[type="number"], input[type="date"], input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Estilo do botão de envio (submit) */
+input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px); /* Animação de botão */
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    margin-top: 20px; /* Maior espaço entre o formulário e a tabela */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+/* Estilo das linhas alternadas */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Efeito de hover nas linhas da tabela */
+tr:hover {
+    background-color: #e1e1e1;
+}
+
+/* Estilo do total de contas */
+.total {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Botões de ações */
+.btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.pagar {
+    background-color: #27ae60;
+    color: white;
+}
+
+.pagar:hover {
+    background-color: #2ecc71;
+}
+
+.pago {
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+}
+
+.pago:hover {
+    background-color: #95a5a6;
+}
+
+/* Botão de exclusão */
+.btn-excluir {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-excluir:hover {
+    background-color: #c0392b;
+}
+
+/* Estilo para a página de histórico */
+.back-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-button a {
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button a:hover {
+    background-color: #2980b9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    body {
+        padding: 5px; /* Ajuste do padding em telas menores */
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    /* Ajusta o formulário para tela menor */
+    form {
+        padding: 15px;
+        margin: 10px;
+        width: 100%;
+    }
+
+    /* Ajuste do tamanho das células da tabela */
+    table, th, td {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .total {
+        font-size: 18px;
+    }
+
+    /* Ajusta os botões em telas menores */
+    .btn, .btn-excluir {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .back-button a {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Contas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>Calculadora de Contas</h1>
+
+    <!-- Link para o Histórico de Contas Pagas -->
+    <div class="back-button">
+        <a href="{{ url_for('historico') }}">Ver Histórico de Contas Pagas</a>
+    </div>
+
+    <!-- Exibindo mensagens de erro, se houver -->
+    {% if error_message %}
+        <div class="message">{{ error_message }}</div>
+    {% endif %}
+
+    <!-- Formulário para adicionar uma nova conta -->
+    <form action="/adicionar_conta" method="POST">
+        <label for="nome_conta">Nome da Conta:</label>
+        <input type="text" id="nome_conta" name="nome_conta" required>
+        
+        <label for="valor_conta">Valor da Conta:</label>
+        <input type="text" id="valor_conta" name="valor_conta" required>
+        
+        <label for="vencimento">Data de Vencimento:</label>
+        <input type="date" id="vencimento" name="vencimento" required>
+        
+        <input type="submit" value="Adicionar Conta">
+    </form>
+
+    <!-- Exibir o total das contas em reais -->
+    <h3>Total das Contas: {{ total_contas | formatar_moeda }}</h3>
+
+    <h2>Contas a Pagar</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome da Conta</th>
+                <th>Valor</th>
+                <th>Vencimento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for conta in contas %}
+                <tr>
+                    <td>{{ loop.index }}</td>  <!-- Usando o loop.index para obter o índice -->
+                    <td>{{ conta.nome }}</td>
+                    <td>{{ conta.valor | formatar_moeda }}</td>  <!-- Alterado para formatar_moeda -->
+                    <td>{{ conta.vencimento | format_date }}</td>
+                    <td>
+                        <form action="/pagar_conta/{{ conta.id }}" method="POST">
+                            <button type="submit" class="btn pagar">Pago</button>
+                        </form>
+                        <form action="/excluir_conta/{{ conta.id }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta conta?');">
+                            <button type="submit" class="btn-excluir">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

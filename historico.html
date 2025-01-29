@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Contas Pagas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>Histórico de Contas Pagas</h1>
+
+    {% if historico %}
+        {% for mes, contas_mes in historico.items() %}
+            <h2>Contas Pagas - {{ mes }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Vencimento</th>
+                        <th>Data de Pagamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for conta in contas_mes %}
+                        <tr>
+                            <td>{{ conta.nome }}</td>
+                            <td>{{ conta.valor | formatar_moeda }}</td>
+                            <td>{{ conta.vencimento | format_date }}</td>
+                            <td>{{ conta.data_pagamento | format_date }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>Não há contas pagas registradas.</p>
+    {% endif %}
+
+<!-- Botão "Voltar" para a página principal -->
+<div class="back-button">
+    <a href="{{ url_for('index') }}">Voltar para a página principal</a>
+</div>
+
+</body>
+</html>
